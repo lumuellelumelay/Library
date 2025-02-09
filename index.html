@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/@flaticon/flaticon-uicons/css/all/all.css">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="./js/index.js" defer></script>
     <title>Library</title>
@@ -11,31 +12,52 @@
 
 <body>
      <header>
-        <div class="logo">
-            <h1>Library</h1>
+        <div class="section-one">
+            <div class="logo">
+                <p>Library</p>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">Store</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="navigation">
-            <ul>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Store</a></li>
-            </ul>
-        </nav>
 
-        <div class="search">
+        <div class="section-two search">
+            <div class="search-icon">
+                <i class="fi fi-bs-search"></i>
+            </div>
             <input type="text" placeholder="Search">
-            <button>Search</button>
+            <!-- <button>Search</button> -->
         </div>
      </header>
 
      <div class="content">
         <div class="wrapper">
             <div class="book-cards">
-
+                <img src="https://picsum.photos/300" alt="background-img">
+                <div class="description-wrapper">
+                    <div class="book-description">
+                        <p class="book-title">Testing</p>
+                        <p class="book-author">Author</p>
+                    </div>
+                    <div class="progress-bar">
+                        <svg viewBox="0 0 100 100">
+                            <circle stroke="#e0dfda" stroke-width="8" cx="50" cy="50" r="30" fill="none"/>
+                            <circle id="progress--circle" stroke="#b5ab54" stroke-width="8" cx="50" cy="50" r="30" fill="none" pathLength="100"/>
+                            <text id="progress--text" x="50" y="-50" text-anchor="middle" dominant-baseline="middle">5%</text>
+                            <!-- <text id="progress--text" class="progress--text--second" x="50" y="55" text-anchor="middle" dominant-baseline="middle">COMPLETED</text> -->
+                          </svg>
+                    </div>
+                </div>
             </div>
+            
         </div>
      </div>
 
      <!-- add dialog -->
+
      <footer>
         <div class="footer">
             <p>Library | TheOdinProject </p>

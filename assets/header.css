@@ -1,0 +1,94 @@
+@import url(assets.css);
+
+/* Header - Navigation */
+header {
+    background-color: var(--background-color);
+    box-shadow: var(--light-shadow);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+header .section-one {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+header .logo {
+
+}
+
+header .logo p {
+    font-family: "Inter", sans-serif;
+    font-size: var(--logo-font-size);
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+header .navigation {
+    padding: 0 3rem;
+    
+}
+
+header .navigation ul {
+    display: flex;
+    gap: 2rem;
+
+    list-style: none;
+}
+
+header .navigation ul li {
+
+}
+
+header .navigation ul li a {
+    font-family: "Inter", sans-serif;
+    font-size: var(--regular-font-size);
+    font-weight: 600;
+    color: var(--text-color);
+
+    text-decoration: none;
+}
+
+header .search {
+    display: flex;
+}
+
+header .search .search-icon {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    height: 2rem;
+    width: 2rem;
+
+    /* border-left: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color); */
+
+    background-color: var(--primary-color);
+}
+
+header .search .search-icon i {
+    padding-top: 4px;
+    color: var(--text-light-color);
+}
+
+header .search input {
+    background-color: var(--background-color);
+    border: 1px solid var(--primary-light-color);
+
+    height: 2rem;
+    width: 350px; /* TODO: Use clamp */
+    padding: 0.5rem;
+    outline: none;
+
+    font-family: "Inter", sans-serif;
+    font-size: var(--subfont-large-size);
+}
+
+/* Animation */

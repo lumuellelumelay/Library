@@ -1,0 +1,89 @@
+@import url(style.css);
+
+/* Content */
+.content {
+    padding: 2rem;
+}
+
+.content .wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 5rem;
+}
+
+/* Book Cards*/
+.content .wrapper .book-cards {
+    background-color: var(--background-color);
+    box-shadow: var(--light-shadow);
+
+    width: 15rem;
+    height: 25rem;
+    padding: 0.5rem;
+}
+
+.content .wrapper .book-cards img {
+    height: 300px;
+    /* width: calc(250px * 0.75); */
+    width: 100%;
+    object-fit: cover;
+}
+
+.content .wrapper .book-cards .description-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.content .wrapper .book-cards .description-wrapper .book-description {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    padding-top: 0.5rem;
+}
+
+.content .wrapper .book-cards .description-wrapper .book-description .book-title {
+    font-family: "Inter", sans-serif;
+    font-size: var(--larger-font-size);
+    color: var(--text-secondary-color);
+    font-weight: 580;
+}
+
+.content .wrapper .book-cards .description-wrapper .book-description .book-author {
+    font-family: "Inter", sans-serif;
+    font-size: var(--subfont-large-size);
+    color: var(--text-third-color);
+    font-weight: 400;
+}
+
+/* Progress Bar */
+.content .wrapper .book-cards .progress-bar { 
+
+}
+
+.content .wrapper .book-cards .progress-bar svg {
+    width: 75px;
+    height: 75px;
+
+    transform: rotate(-90deg);
+}
+
+.content .wrapper .book-cards .progress-bar svg #progress--circle {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 95; /* to change the percentage*/
+    stroke-linecap: round;
+}
+
+.content .wrapper .book-cards .progress-bar svg #progress--text {
+    font-family: "Inter", sans-serif;
+    font-size: var(--subfont-large-size);
+    font-weight: 500;
+    color: var(--text-secondary-color);
+
+    fill: var(--text-color);
+
+    /* transform-origin: center; */
+    transform: rotate(90deg);
+}
+
