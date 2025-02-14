@@ -13,13 +13,13 @@ export default class BookCardModule {
   }
 
   getParentNode() {
-    return (wrapper = document.querySelector('.wrapper'));
+    return document.querySelector('.wrapper');
   }
 
   // this instance creates the book card elements and
   // stores to the this.element object for later use.
   createBookCardElements() {
-    // Note: this trend goes to top-level to bottom-level in respect to the DOM
+    // Note: this trend goes to top-level to bottom-level respect to the DOM
 
     // create book card
     this.elements.bookCards = document.createElement('div');
@@ -37,10 +37,22 @@ export default class BookCardModule {
     this.elements.bookAuthor = document.createElement('p');
 
     // create progress bar component
-    this.elements.circleSvg = document.createElement('svg');
-    this.elements.circleOne = document.createElement('circle');
-    this.elements.circleTwo = document.createElement('circle');
-    this.elements.text = document.createElement('text');
+    this.elements.circleSvg = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'svg'
+    );
+    this.elements.circleOne = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'circle'
+    );
+    this.elements.circleTwo = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'circle'
+    );
+    this.elements.text = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'text'
+    );
   }
 
   // this instance is the collection of instances and will
@@ -54,47 +66,55 @@ export default class BookCardModule {
     this.elements.bookCards.classList.add('book-cards');
 
     // for book cover and description wrapper
-    setBookCardComponent();
+    this.setBookCardComponent();
 
     // for book description wrapper component
-    setDescriptionWrapperComponent();
+    this.setDescriptionWrapperComponent();
 
     // for book description component
-    setBookDescriptionComponent();
+    this.setBookDescriptionComponent();
 
     // for progress bar component
-    setProgressBarComponent();
+    this.setProgressBarComponent();
+  }
+
+  imageHandler(image) {
+    if (!image || image.length === 0) {
+      return 'https://picsum.photos/300';
+    }
+    return image;
+  }
+
+  altHandler(alt) {
+    return alt || 'A random generated image';
   }
 
   setBookCardComponent() {
-    this.elements.bookCover.setAttributes(
-      'src',
-      this.data.url || 'https://picsum.photos/300'
-    );
-    this.elements.bookCover.setAttributes(
-      'alt',
-      this.data.alt || 'A random generated image'
-    );
+    const image = this.imageHandler(this.data.url);
+    const alt = this.altHandler(this.data.alt);
+
+    this.elements.bookCover.setAttribute('src', image);
+    this.elements.bookCover.setAttribute('alt', alt);
 
     this.elements.descriptionWrapper.classList.add('description-wrapper');
   }
 
   setDescriptionWrapperComponent() {
-    this.elements.bookDescription.classList.add(book - description);
+    this.elements.bookDescription.classList.add('book-description');
     this.elements.progressBar.classList.add('progress-bar');
   }
 
   // test the book title and author with .textContent
   setBookDescriptionComponent() {
     this.elements.bookTitle.classList.add('book-title');
-    this.elements.bookTItle.textConotent = this.data.title;
+    this.elements.bookTitle.textContent = this.data.title;
 
-    this.this.elements.bookAuthor.classList.add('book-author');
-    this.elements.bookAuthor.textConotent = this.data.author;
+    this.elements.bookAuthor.classList.add('book-author');
+    this.elements.bookAuthor.textContent = this.data.author;
   }
 
   setProgressBarComponent() {
-    this.elements.circleSvg.setAttributes('viewBox', '0 0 100 100');
+    this.elements.circleSvg.setAttribute('viewBox', '0 0 100 100');
 
     // attributes of circle one
     const circleOneAttributes = {
@@ -110,10 +130,11 @@ export default class BookCardModule {
     });
 
     // attributes of circle two
-    const progressBar = `progress--${this.data.id}`;
+    // const progressBar = `progress--${this.data.id}`;
+    // const progressBar = `progress--circle`;
     const circleTwoAttributes = {
-      id: progressBar,
-      storke: '#b5ab54',
+      id: 'progress--circle',
+      stroke: '#b5ab54',
       'stroke-width': '8',
       cx: '50',
       cy: '50',
@@ -122,11 +143,11 @@ export default class BookCardModule {
       pathLength: '100',
     };
     Object.entries(circleTwoAttributes).forEach(([key, value]) => {
-      this.elements.circleTwo.setAttributes(key, value);
+      this.elements.circleTwo.setAttribute(key, value);
     });
 
     // attributes of text
-    const text = {
+    const textAttributes = {
       id: 'progress--text',
       x: '50',
       y: '-50',
@@ -134,7 +155,7 @@ export default class BookCardModule {
       'dominant-baseline': 'middle',
     };
     Object.entries(textAttributes).forEach(([key, value]) => {
-      this.elements.text.setAttributes(key, value);
+      this.elements.text.setAttribute(key, value);
     });
 
     this.progressHandler(this.data.progress);
@@ -142,7 +163,40 @@ export default class BookCardModule {
 
   progressHandler(percentage) {
     this.elements.text.textContent = `${percentage}%`;
-    this.elements.circleTwo.style.strokeDashoffset = percentage;
+    this.elements.circleTwo.style.strokeDashoffset = 100 - percentage;
+  }
+
+  // This section assembles the elements and components of the book cards
+  assembleElements() {
+    this.elements.circleSvg.append(
+      this.elements.circleOne,
+      this.elements.circleTwo,
+      this.elements.text
+    );
+    this.elements.progressBar.appendChild(this.elements.circleSvg);
+
+    this.elements.bookDescription.append(
+      this.elements.bookTitle,
+      this.elements.bookAuthor
+    );
+
+    this.elements.descriptionWrapper.append(
+      this.elements.bookDescription,
+      this.elements.progressBar
+    );
+
+    this.elements.bookCards.append(
+      this.elements.bookCover,
+      this.elements.descriptionWrapper
+    );
+
+    this.wrapper.appendChild(this.elements.bookCards);
+  }
+
+  rederCard() {
+    this.createBookCardElements();
+    this.setAttributesManager();
+    this.assembleElements();
   }
 }
 
