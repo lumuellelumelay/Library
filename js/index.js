@@ -1,16 +1,5 @@
-import Library from './library.js';
+// import { jsonHandler } from './dataHandler.js';
 
-const library = new Library();
-library.addBookList('The Hobbit', 'J.R.R. Tolkien', 1937);
-library.addBookList('The Lord of the Rings', 'J.R.R. Tolkien', 1954);
-library.addBookList('The Catcher in the Rye', 'J.D. Salinger', 1951);
+import BookCardModule from './bookCardModule.js';
 
-let displayBook = function (book) {
-  console.log(
-    `Book ID: ${book.id}, Title: ${book.title}, Author: ${book.author}, Year: ${book.year}`
-  );
-};
-
-library.getBookList().forEach((book) => {
-  displayBook(book);
-});
+console.log(BookCardModule);

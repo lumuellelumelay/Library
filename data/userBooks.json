@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "year": 1937,
+        "description": "The Hobbit is a novel by J.R.R. Tolkien, first published in 1937. It is the first book in The Lord of the Rings, and is followed by The Lord of the Rings and The Two Towers. The book is set in the fictional Shire, a land inhabited by hobbits, dwarves, and other creatures. The story follows Bilbo Baggins as he leaves his home in the Shire to attend Hobbiton University, where he is to train as a wizard.",
+        "progress": 60,
+        "url": "./img/the_hobbit.jpeg"
+    },
+    {
+        "id": 2,
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "year": 1954,
+        "description": "The Lord of the Rings is a fantasy novel by J.R.R. Tolkien, first published in 1954. It is the second book in The Lord of the Rings, and is preceded by The Hobbit and followed by The Two Towers. The book is set in the fictional Middle-earth, a world inhabited by hobbits, dwarves, elves, and other creatures. The story follows the journey of Frodo Baggins as he leaves the Shire to seek the One Ring, a powerful ring that holds the power to control all things in Middle-earth.",
+        "progress": 80,
+        "url": "./img/lord_of_the_rings.jpeg"
+    },
+    {
+        "id": 3,
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",            
+        "year": 1951,
+        "description": "The Catcher in the Rye is a novel by J.D. Salinger, first published in 1951. It is the third book in The Catcher in the Rye series, and is preceded by The Catcher in the Rye and followed by The Stranger. The book is set in the fictional town of New York, New York, and follows the story of Holden Caulfield, a teenage boy who is struggling to find his place in the world.",
+        "progress": 40,
+        "url": "./img/catcher_in_the_rye.jpeg"
+    }
+]
+
