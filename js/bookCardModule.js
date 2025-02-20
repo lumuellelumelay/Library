@@ -1,11 +1,4 @@
 export default class BookCardModule {
-  // Temporary: Since the data are comming from the library.js file
-  // we can skip getting the data from the library.js and
-  // we can just pass the variables when the BookCardHandle (soon)
-  // invoke the instances of BookCardModule.
-
-  // this constructor is temporary only and will be removed
-  // if it was not used properly.
   constructor(data) {
     this.data = data; // this is the data from the library.js in object format
     this.elements = {};
@@ -16,27 +9,18 @@ export default class BookCardModule {
     return document.querySelector('.wrapper');
   }
 
-  // this instance creates the book card elements and
-  // stores to the this.element object for later use.
   createBookCardElements() {
-    // Note: this trend goes to top-level to bottom-level respect to the DOM
-
-    // create book card
     this.elements.bookCards = document.createElement('div');
 
-    // create book card component
     this.elements.bookCover = document.createElement('img');
     this.elements.descriptionWrapper = document.createElement('div');
 
-    // create description wrapper component
     this.elements.bookDescription = document.createElement('div');
     this.elements.progressBar = document.createElement('div');
 
-    // create book description component
     this.elements.bookTitle = document.createElement('p');
     this.elements.bookAuthor = document.createElement('p');
 
-    // create progress bar component
     this.elements.circleSvg = document.createElementNS(
       'http://www.w3.org/2000/svg',
       'svg'
@@ -55,26 +39,15 @@ export default class BookCardModule {
     );
   }
 
-  // this instance is the collection of instances and will
-  // invoke other methods once this instance is invoked.
-  // Note: this trend goes to top-level to bottom-level in respect to the DOM.
-  // Note: this code is temporary and changes will be made.
-  //
-  // this instance is for setting attributes to the book card components
   setAttributesManager() {
-    // for book card
     this.elements.bookCards.classList.add('book-cards');
 
-    // for book cover and description wrapper
     this.setBookCardComponent();
 
-    // for book description wrapper component
     this.setDescriptionWrapperComponent();
 
-    // for book description component
     this.setBookDescriptionComponent();
 
-    // for progress bar component
     this.setProgressBarComponent();
   }
 
@@ -104,7 +77,6 @@ export default class BookCardModule {
     this.elements.progressBar.classList.add('progress-bar');
   }
 
-  // test the book title and author with .textContent
   setBookDescriptionComponent() {
     this.elements.bookTitle.classList.add('book-title');
     this.elements.bookTitle.textContent = this.data.title;
@@ -116,7 +88,6 @@ export default class BookCardModule {
   setProgressBarComponent() {
     this.elements.circleSvg.setAttribute('viewBox', '0 0 100 100');
 
-    // attributes of circle one
     const circleOneAttributes = {
       stroke: '#e0dfda',
       'stroke-width': '8',
@@ -146,7 +117,6 @@ export default class BookCardModule {
       this.elements.circleTwo.setAttribute(key, value);
     });
 
-    // attributes of text
     const textAttributes = {
       id: 'progress--text',
       x: '50',
@@ -166,7 +136,6 @@ export default class BookCardModule {
     this.elements.circleTwo.style.strokeDashoffset = 100 - percentage;
   }
 
-  // This section assembles the elements and components of the book cards
   assembleElements() {
     this.elements.circleSvg.append(
       this.elements.circleOne,
@@ -194,12 +163,9 @@ export default class BookCardModule {
   }
 
   rederCard() {
+    // console.log(this.data);
     this.createBookCardElements();
     this.setAttributesManager();
     this.assembleElements();
   }
 }
-
-// The problem is how to set the data from the json and
-// display it in the card.
-// Solution: temporary solution is to set the data in the constructor.
