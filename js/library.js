@@ -6,8 +6,10 @@ export default class Library {
     this.bookList = []; // this will store the books
   }
 
-  addBookList(title, author, year) {
-    this.bookList.push(new Book(this.id, title, author, year));
+  addBookList(title, author, year, description, progress, url) {
+    this.bookList.push(
+      new Book(this.id, title, author, year, description, progress, url)
+    );
     this.id++;
   }
 
