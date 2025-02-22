@@ -34,8 +34,24 @@
      </header>
 
      <div class="content">
+        <div class="top-content">
+            <p class="page-title">Your Books</p>
+            <button class="add-book"> <!-- Add book button. TODO: Add functionality -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <title>plus</title>
+                    <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                </svg>
+                Add Book
+            </button>
+        </div>
         <div class="wrapper">
-            <div class="book-cards">
+            <div class="book-cards"> 
+                <div class="remove-book-container"> <!-- To remove books. TODO: Add functionality -->
+                    <div class="remove-book"> 
+                        <i class= "fi fi-bs-minus"></i>
+                    </div>
+                </div>
+                
                 <img src="https://picsum.photos/300" alt="background-img">
                 <div class="description-wrapper">
                     <div class="book-description">
@@ -44,16 +60,16 @@
                     </div>
                     <div class="progress-bar">
                         <svg viewBox="0 0 100 100">
-                            <circle stroke="#e0dfda" stroke-width="8" cx="50" cy="50" r="30" fill="none"/>
-                            <circle id="progress--circle" stroke="#b5ab54" stroke-width="8" cx="50" cy="50" r="30" fill="none" pathLength="100"/>
+                            <circle stroke="#e4e3e3" stroke-width="8" cx="50" cy="50" r="30" fill="none"/>
+                            <circle id="progress--circle" stroke="#9a6971" stroke-width="8" cx="50" cy="50" r="30" fill="none" pathLength="100"/>
                             <text id="progress--text" x="50" y="-50" text-anchor="middle" dominant-baseline="middle">5%</text>
                             <!-- <text id="progress--text" class="progress--text--second" x="50" y="55" text-anchor="middle" dominant-baseline="middle">COMPLETED</text> -->
                           </svg>
                     </div>
                 </div>
             </div>
-            
         </div>
+
      </div>
 
      <!-- add dialog -->

@@ -3,7 +3,7 @@
 /* Header - Navigation */
 header {
     background-color: var(--background-color);
-    box-shadow: var(--light-shadow);
+    box-shadow: var(--dark-shadow);
 
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@ header .navigation ul li {
 header .navigation ul li a {
     font-family: "Inter", sans-serif;
     font-size: var(--regular-font-size);
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-color);
 
     text-decoration: none;
@@ -80,7 +80,7 @@ header .search .search-icon i {
 
 header .search input {
     background-color: var(--background-color);
-    border: 1px solid var(--primary-light-color);
+    border: 1px solid var(--primary-color);
 
     height: 2rem;
     width: 350px; /* TODO: Use clamp */

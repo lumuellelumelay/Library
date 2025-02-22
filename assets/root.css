@@ -12,33 +12,35 @@
 :root {
     /* Colors */
     /* Background */
-    --backgroud-color: rgb(249 248 242); /* #f9f8f2 */
-    --background-secondary-color: rgb(224 223 218); /* #e0dfda */
+    --backgroud-color: rgb(253 252 252);
+    --background-secondary-color: rgb(228 227 227);
 
     /* Text */
-    --text-color: rgb(14 13 6); /* #0e0d06 */
-    --text-secondary-color: rgb(38 37 31); /* #26251f */
-    --text-third-color: rgb(86 86 81); /* #3e3d38 */
-    --text-light-color: rgb(249 248 242); /* #f9f8f2 */
+    --text-color: rgb(20 14 15);
+    --text-secondary-color: rgb(67 62 63);
+    --text-third-color: rgb(114 110 111);
+    --text-light-color: rgb(253 252 252);
 
     /* Primary */
-    --primary-color: rgb(181 171 84); /* #b5ab54 */
-    --primary-light-color: rgb(188 179 101); /* #bcb365 */
+    --primary-color: rgb(154 105 113);
+    --primary-light-color: rgb(174 135 141);
 
     /* Secondary */
-    --secondary-color: rgb(189 213 158); /* #bdd59e */
-    --secondary-light-color: rgb(196 217 168); /* #c4d9a8 */
+    --secondary-color: rgb(200 183 173);
+    --secondary-light-color: rgb(211 197 189);
 
     /* Accent */
-    --accent-color: rgb(152 195 116); /* #98c374 */
-    --accent-light-color: rgb(162 201 130); /* #a2c982 */
+    --accent-color: rgb(180 166 143);
+    --accent-light-color: rgb(195 184 165);
 
     /* Border */
     --border-color: rgb(183 182 180); /* #b7b6b4 */
 
     /* Shadow */
-    --light-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    --dark-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    --light-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.16);
+    --dark-shadow: 0 6px 12px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.18);
+
+    --book-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.16), 0 0 5px 2px rgba(0, 0, 0, 0.12);
 
     /* Modal */
     /* Error */

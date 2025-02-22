@@ -89,7 +89,7 @@ export default class BookCardModule {
     this.elements.circleSvg.setAttribute('viewBox', '0 0 100 100');
 
     const circleOneAttributes = {
-      stroke: '#e0dfda',
+      stroke: '#e4e3e3',
       'stroke-width': '8',
       cx: '50',
       cy: '50',
@@ -105,7 +105,7 @@ export default class BookCardModule {
     // const progressBar = `progress--circle`;
     const circleTwoAttributes = {
       id: 'progress--circle',
-      stroke: '#b5ab54',
+      stroke: '#9a6971',
       'stroke-width': '8',
       cx: '50',
       cy: '50',
@@ -163,7 +163,7 @@ export default class BookCardModule {
   }
 
   rederCard() {
-    // console.log(this.data);
+    console.log(this.data);
     this.createBookCardElements();
     this.setAttributesManager();
     this.assembleElements();
