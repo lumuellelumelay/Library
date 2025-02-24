@@ -99,6 +99,11 @@ export default class BookCardModule {
     this.elements.toggleMenuBookContainer.classList.add(
       'toggle-menu-book-container'
     );
+    this.elements.toggleMenuBookContainer.setAttribute(
+      'data-menu-id',
+      this.data.id
+    );
+
     this.elements.descriptionWrapper.classList.add('description-wrapper');
   }
 
@@ -110,7 +115,10 @@ export default class BookCardModule {
 
   setMenuComponent() {
     this.elements.done.classList.add('done');
+    this.elements.done.setAttribute('data-done-id', this.data.id);
+
     this.elements.remove.classList.add('remove');
+    this.elements.remove.setAttribute('data-remove-id', this.data.id);
   }
 
   setDoneComponent() {

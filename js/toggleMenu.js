@@ -8,11 +8,13 @@ export default class ToggleMenuModule {
     if (!this.wrapper) return;
 
     this.wrapper.addEventListener('click', (e) => {
-      const toggleMenu = e.target.closest('.book-cards');
+      const toggleMenu = e.target.closest('.toggle-menu-book');
 
       if (toggleMenu) {
-        const bookCardId = toggleMenu.dataset.bookId;
-        this.toggleMenuHandler(e, bookCardId);
+        const toggleMenuId = toggleMenu.closest('.toggle-menu-book-container')
+          .dataset.menuId;
+
+        this.toggleMenuHandler(e, toggleMenuId);
       } else {
         this.checkOutsideToggle(e);
       }
@@ -31,16 +33,16 @@ export default class ToggleMenuModule {
     }
   }
 
-  toggleMenuHandler(e, bookCardId) {
+  toggleMenuHandler(e, toggleMenuId) {
     e.stopPropagation();
 
-    const bookCard = document.querySelector(`[data-book-id="${bookCardId}"]`);
+    const bookCard = document.querySelector(`[data-book-id="${toggleMenuId}"]`);
     const menu = bookCard.querySelector('.menu');
 
     this.wrapper.querySelectorAll('.menu.active').forEach((activeMenu) => {
       const activeMenuCheck = activeMenu.closest('.book-cards');
 
-      if (activeMenuCheck.dataset.bookId !== bookCardId) {
+      if (activeMenuCheck.dataset.bookId !== toggleMenuId) {
         activeMenu.classList.remove('active');
       }
     });
