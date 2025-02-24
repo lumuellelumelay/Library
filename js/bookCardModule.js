@@ -12,8 +12,22 @@ export default class BookCardModule {
   createBookCardElements() {
     this.elements.bookCards = document.createElement('div');
 
+    this.elements.toggleMenuBookContainer = document.createElement('div');
     this.elements.bookCover = document.createElement('img');
     this.elements.descriptionWrapper = document.createElement('div');
+
+    this.elements.toggleMenuBook = document.createElement('div');
+    this.elements.toggleIcon = document.createElement('i');
+    this.elements.menu = document.createElement('div');
+
+    this.elements.done = document.createElement('div');
+    this.elements.remove = document.createElement('div');
+
+    this.elements.doneUndo = document.createElement('p'); // this is the done-undo
+    this.elements.doneUndoIcon = document.createElement('i');
+
+    this.elements.removeParagrapgh = document.createElement('p');
+    this.elements.removeIcon = document.createElement('i');
 
     this.elements.bookDescription = document.createElement('div');
     this.elements.progressBar = document.createElement('div');
@@ -44,6 +58,14 @@ export default class BookCardModule {
 
     this.setBookCardComponent();
 
+    this.setToggleMenuBookComponent();
+
+    this.setMenuComponent();
+
+    this.setDoneComponent();
+
+    this.setRemoveComponent();
+
     this.setDescriptionWrapperComponent();
 
     this.setBookDescriptionComponent();
@@ -69,7 +91,33 @@ export default class BookCardModule {
     this.elements.bookCover.setAttribute('src', image);
     this.elements.bookCover.setAttribute('alt', alt);
 
+    this.elements.toggleMenuBookContainer.classList.add(
+      'toggle-menu-book-container'
+    );
     this.elements.descriptionWrapper.classList.add('description-wrapper');
+  }
+
+  setToggleMenuBookComponent() {
+    this.elements.toggleMenuBook.classList.add('toggle-menu-book');
+    this.elements.toggleIcon.classList.add('fi', 'fi-bs-menu-dots');
+    this.elements.menu.classList.add('menu');
+  }
+
+  setMenuComponent() {
+    this.elements.done.classList.add('done');
+    this.elements.remove.classList.add('remove');
+  }
+
+  setDoneComponent() {
+    this.elements.doneUndo.classList.add('done-undo');
+    this.elements.doneUndo.textContent = 'Done';
+    this.elements.doneUndoIcon.classList.add('fi', 'fi-bs-check-circle');
+  }
+
+  setRemoveComponent() {
+    this.elements.remove.classList.add('remove');
+    this.elements.removeParagrapgh.textContent = 'Remove';
+    this.elements.removeIcon.classList.add('fi', 'fi-bs-trash');
   }
 
   setDescriptionWrapperComponent() {
@@ -154,7 +202,27 @@ export default class BookCardModule {
       this.elements.progressBar
     );
 
+    this.elements.remove.append(
+      this.elements.removeParagrapgh,
+      this.elements.removeIcon
+    );
+
+    this.elements.done.append(
+      this.elements.doneUndo,
+      this.elements.doneUndoIcon
+    );
+
+    this.elements.menu.append(this.elements.done, this.elements.remove);
+
+    this.elements.toggleMenuBook.append(this.elements.toggleIcon);
+
+    this.elements.toggleMenuBookContainer.append(
+      this.elements.toggleMenuBook,
+      this.elements.menu
+    );
+
     this.elements.bookCards.append(
+      this.elements.toggleMenuBookContainer,
       this.elements.bookCover,
       this.elements.descriptionWrapper
     );
@@ -163,7 +231,6 @@ export default class BookCardModule {
   }
 
   rederCard() {
-    console.log(this.data);
     this.createBookCardElements();
     this.setAttributesManager();
     this.assembleElements();

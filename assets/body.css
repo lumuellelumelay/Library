@@ -24,6 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     font-family: "Inter", sans-serif;
     font-size: var(--subfont-large-size);
@@ -36,12 +37,13 @@
     background-color: var(--accent-color);
 
     box-shadow: var(--light-shadow);
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
 }
 
 .content .top-content .add-book:hover {
     background-color: var(--accent-light-color);
-    transition: 0.2s;
-    cursor: pointer;
 }
 
 .content .top-content svg {
@@ -69,31 +71,81 @@
     position: relative;
 }
 
-.content .wrapper .book-cards .remove-book-container {
+/* toggle button */
+.toggle-menu-book-container {
     position: absolute;
     top: 1rem;
-    left: 11.5rem;
-    z-index: 1;
+    right: 1rem;
+}
 
-    background-color: rgba(0, 0, 0, 0.4);
-    opacity: 70%;
+
+.toggle-menu-book-container .toggle-menu-book {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 3px;
-}
 
-.content .wrapper .book-cards .remove-book-container:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-    opacity: 90%;
-    transition: 0.2s;
-    cursor: pointer;
-}
+    padding: 0.3rem 0.4rem 0px 0.4rem;
 
-.content .wrapper .book-cards .remove-book {
-    padding: 0.3rem 0.8rem 0.1rem 0.8rem;
-}
-
-.content .wrapper .book-cards .remove-book i {
     color: var(--text-light-color);
-    font-size: 0.85rem;
+    font-size: 1.3rem;
+
+    transition: all 0.2s ease;
+    cursor: pointer;
+    
+}
+
+.toggle-menu-book-container .toggle-menu-book:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* toggle menu */
+.menu {
+    display: none;
+    position: absolute;
+    top: 2.5rem;
+    right: 1rem;
+    z-index: 2;
+
+    background-color: var(--background-color);
+    border-radius: 5px;
+
+    /* transition: all 0.2s ease; */
+}
+
+.menu.active {
+    display: block;
+}
+
+.menu div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 0.5rem;
+}
+
+.menu .done:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px 5px 0 0;
+}
+
+.menu .remove:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 5px 5px;
+}
+
+.menu div p {
+    font-size: var(--subfont-large-size);
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: var(--text-secondary-color);
+}
+
+.menu div i {
+    font-size: var(--subfont-large-size);
+    font-weight: 600;
+    color: var(--text-secondary-color);
 }
 
 .content .wrapper .book-cards img {
