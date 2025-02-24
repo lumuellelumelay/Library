@@ -27,7 +27,6 @@ const createBookCards = function () {
       progress: book.progress,
       url: book.url,
     };
-    console.log(bookData);
     const bookCard = new BookCardModule(bookData);
     bookCard.rederCard();
   });

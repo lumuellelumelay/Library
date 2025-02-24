@@ -54,7 +54,7 @@ export default class BookCardModule {
   }
 
   setAttributesManager() {
-    this.elements.bookCards.classList.add('book-cards');
+    this.setBookCards();
 
     this.setBookCardComponent();
 
@@ -71,6 +71,11 @@ export default class BookCardModule {
     this.setBookDescriptionComponent();
 
     this.setProgressBarComponent();
+  }
+
+  setBookCards() {
+    this.elements.bookCards.classList.add('book-cards');
+    this.elements.bookCards.setAttribute('data-book-id', this.data.id);
   }
 
   imageHandler(image) {
