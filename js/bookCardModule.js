@@ -1,6 +1,6 @@
 export default class BookCardModule {
   constructor(data) {
-    this.data = data; // this is the data from the library.js in object format
+    this.data = data; // this is the data from the dataHandler.js -> library.js in object format
     this.elements = {};
     this.wrapper = this.getParentNode();
   }
@@ -21,6 +21,7 @@ export default class BookCardModule {
     this.elements.menu = document.createElement('div');
 
     this.elements.done = document.createElement('div');
+    this.elements.line = document.createElement('div');
     this.elements.remove = document.createElement('div');
 
     this.elements.doneUndo = document.createElement('p'); // this is the done-undo
@@ -115,10 +116,12 @@ export default class BookCardModule {
 
   setMenuComponent() {
     this.elements.done.classList.add('done');
-    this.elements.done.setAttribute('data-done-id', this.data.id);
+    this.elements.done.setAttribute('data-done-toggle-id', this.data.id);
+
+    this.elements.line.classList.add('line');
 
     this.elements.remove.classList.add('remove');
-    this.elements.remove.setAttribute('data-remove-id', this.data.id);
+    this.elements.remove.setAttribute('data-remove-toggle-id', this.data.id);
   }
 
   setDoneComponent() {
@@ -225,7 +228,11 @@ export default class BookCardModule {
       this.elements.doneUndoIcon
     );
 
-    this.elements.menu.append(this.elements.done, this.elements.remove);
+    this.elements.menu.append(
+      this.elements.done,
+      this.elements.line,
+      this.elements.remove
+    );
 
     this.elements.toggleMenuBook.append(this.elements.toggleIcon);
 

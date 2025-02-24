@@ -100,20 +100,25 @@
 
 /* toggle menu */
 .menu {
-    display: none;
     position: absolute;
     top: 2.5rem;
     right: 1rem;
     z-index: 2;
 
     background-color: var(--background-color);
+    box-shadow: var(--light-shadow);
     border-radius: 5px;
 
-    /* transition: all 0.2s ease; */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
 }
 
 .menu.active {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(6px);
 }
 
 .menu div {
@@ -123,6 +128,8 @@
     gap: 1rem;
 
     padding: 0.5rem;
+
+    transition: all 0.2s ease;
 }
 
 .menu .done:hover {
@@ -135,16 +142,29 @@
     border-radius: 0 0 5px 5px;
 }
 
+.menu .line {
+    justify-self: center;
+    padding: 0.2rem 0;
+    width: 85%;
+}
+
+.menu .line::after {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: var(--background-secondary-color);
+}
+
 .menu div p {
     font-size: var(--subfont-large-size);
     font-family: "Inter", sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-secondary-color);
 }
 
 .menu div i {
     font-size: var(--subfont-large-size);
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-secondary-color);
 }
 
