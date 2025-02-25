@@ -81,6 +81,7 @@ header .search .search-icon i {
 header .search input {
     background-color: var(--background-color);
     border: 1px solid var(--primary-color);
+    border-radius: none;
 
     height: 2rem;
     width: 350px; /* TODO: Use clamp */
