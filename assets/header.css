@@ -81,15 +81,19 @@ header .search .search-icon i {
 header .search input {
     background-color: var(--background-color);
     border: 1px solid var(--primary-color);
-    border-radius: none;
 
     height: 2rem;
-    width: 350px; /* TODO: Use clamp */
+    width: 350px;
     padding: 0.5rem;
     outline: none;
 
     font-family: "Inter", sans-serif;
     font-size: var(--subfont-large-size);
 }
+
+header .search input[type="search"] {
+    -webkit-appearance: none;
+    border-radius: 0;
+} 
 
 /* Animation */
