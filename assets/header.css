@@ -91,7 +91,7 @@ header .search input {
     font-size: var(--subfont-large-size);
 }
 
-input[type="search"] {
+input[type="text"] {
     -webkit-appearance: none;
     border-radius: 0;
 } 
