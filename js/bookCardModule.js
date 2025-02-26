@@ -117,6 +117,7 @@ export default class BookCardModule {
   setMenuComponent() {
     this.elements.done.classList.add('done');
     this.elements.done.setAttribute('data-done-toggle-id', this.data.id);
+    this.elements.done.setAttribute('isToggled', 'false');
 
     this.elements.line.classList.add('line');
 

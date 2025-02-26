@@ -16,4 +16,8 @@ export default class Library {
   getBookList() {
     return this.bookList;
   }
+
+  getBook(bookId) {
+    return this.bookList[bookId - 1];
+  }
 }

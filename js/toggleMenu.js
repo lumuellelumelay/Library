@@ -1,3 +1,5 @@
+import { progressHandler } from './dataHandler.js';
+
 export default class ToggleMenuModule {
   constructor(wrapper) {
     this.wrapper = document.querySelector(wrapper);
@@ -61,11 +63,61 @@ export default class ToggleMenuModule {
     menu.classList.toggle('active');
   }
 
+  // getting the progress from the book
+  getProgress(bookId) {
+    const progress = progressHandler(bookId);
+    return progress;
+  }
+
+  // setting the progress from the book
+  setProgress(bookId, progress, isToggled) {
+    // how to set the progress without lossing the data and changing it on both UI and data?
+    const bookToggledId = document
+      .querySelector(`[data-book-id="${bookId}"]`)
+      .querySelector('.description-wrapper');
+    const progressSvg = bookToggledId.querySelector('#progress--circle');
+    const progressText = bookToggledId.querySelector('#progress--text');
+    progressText.textContent = `${progress}%`;
+    progressSvg.style.strokeDashoffset = 100 - progress;
+    if (isToggled === 'true') {
+      progressSvg.style.stroke = 'rgb(200 183 173)';
+    } else {
+      progressSvg.style.stroke = 'rgb(154 105 113)';
+    }
+  }
+
+  doneToggle(bookId, isToggled, doneToggle) {
+    const doneUndo = doneToggle.querySelector('.done-undo');
+    const doneUndoIcon = doneToggle.querySelector('.fi');
+    bookId = parseInt(bookId);
+
+    if (isToggled === 'true') {
+      this.setProgress(bookId, 100, isToggled);
+      setTimeout(() => {
+        doneUndo.textContent = 'Undo';
+        doneUndoIcon.classList.remove('fi', 'fi-bs-check-circle');
+        doneUndoIcon.classList.add('fi', 'fi-bs-rotate-left');
+      }, 300);
+    } else {
+      const progress = this.getProgress(bookId);
+      this.setProgress(bookId, progress, isToggled);
+      setTimeout(() => {
+        doneUndo.textContent = 'Done';
+        doneUndoIcon.classList.remove('fi', 'fi-bs-rotate-left');
+        doneUndoIcon.classList.add('fi', 'fi-bs-check-circle');
+      }, 300);
+    }
+  }
+
   doneToggleHandler(e, doneToggleId) {
     e.stopPropagation();
     // function to handle progress bars
-
+    // checking if the done toggle is complete
     const menu = this.bookCardHandler(doneToggleId);
+    const doneToggle = menu.querySelector('.done');
+    const isToggled = this.toggleHandler(doneToggle);
+
+    this.doneToggle(doneToggleId, isToggled, doneToggle);
     menu.classList.remove('active');
   }
 
@@ -75,6 +127,16 @@ export default class ToggleMenuModule {
 
     const menu = this.bookCardHandler(removeToggleId);
     menu.classList.remove('active');
+  }
+
+  toggleHandler(isToggled) {
+    if (isToggled.getAttribute('isToggled') === 'false') {
+      isToggled.setAttribute('isToggled', 'true');
+      return 'true';
+    } else {
+      isToggled.setAttribute('isToggled', 'false');
+      return 'false';
+    }
   }
 
   bookCardHandler(bookCardId) {

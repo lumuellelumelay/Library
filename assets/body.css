@@ -216,9 +216,12 @@
 }
 
 .content .wrapper .book-cards .progress-bar svg #progress--circle {
+    stroke: "#e4e3e3";
     stroke-dasharray: 100;
     stroke-dashoffset: 95; /* to change the percentage*/
     stroke-linecap: round;
+
+    transition: stroke-dashoffset 0.3s ease-out, stroke 0.3s ease-out;
 }
 
 .content .wrapper .book-cards .progress-bar svg #progress--text {
