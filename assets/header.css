@@ -89,11 +89,9 @@ header .search input {
 
     font-family: "Inter", sans-serif;
     font-size: var(--subfont-large-size);
-}
 
-input[type="text"] {
     -webkit-appearance: none;
     border-radius: 0;
-} 
+}
 
 /* Animation */
