@@ -32,22 +32,26 @@ const createBookCards = function () {
   });
 };
 
+export const addNewBook = function (book) {
+  // this function will add a new book to the library
+  library.addBookList(
+    book.title,
+    book.author,
+    book.year,
+    book.description,
+    book.progress,
+    book.url
+  );
+  const newBook = library.getNewBook();
+  const newBookCard = new BookCardModule(newBook);
+  newBookCard.rederCard();
+};
+
 // getting the progress of the book with matching id
 export const progressHandler = function (bookId) {
   // TODO: able to update the progress and able to return back the old progress
   const book = library.getBook(bookId);
   return book.progress;
-};
-
-// TEST FUNCTION
-export const testFunction = function (a, b, c = 0) {
-  if (a === 0 || b === 0) return `ERROR ERROR ERROR ${a} ${b}`;
-
-  if (c === 0) {
-    return a + b;
-  } else {
-    return a + b + c;
-  }
 };
 
 // iterate through the json data and add each book to the library

@@ -1,4 +1,5 @@
-import { testFunction, jsonHandler } from './dataHandler.js';
+import { jsonHandler } from './dataHandler.js';
+import { NewBookHandler } from './newBookHandler.js';
 // import BookCardModule from './bookCardModule.js';
 // import Library from './library.js';
 
@@ -6,8 +7,5 @@ import toggleMenuModule from './toggleMenu.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   new toggleMenuModule('.wrapper');
+  new NewBookHandler('.add-book');
 });
-
-// TEST FUNCTION
-console.log(testFunction(1, 2, 3));
-console.log(testFunction(1, 2));

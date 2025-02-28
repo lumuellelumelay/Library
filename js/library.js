@@ -20,4 +20,8 @@ export default class Library {
   getBook(bookId) {
     return this.bookList[bookId - 1];
   }
+
+  getNewBook() {
+    return this.bookList[this.bookList.length - 1];
+  }
 }

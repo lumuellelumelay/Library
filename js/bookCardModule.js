@@ -87,7 +87,7 @@ export default class BookCardModule {
   }
 
   altHandler(alt) {
-    return alt || 'A random generated image';
+    return alt || 'A random generated image placeholder';
   }
 
   setBookCardComponent() {
