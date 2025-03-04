@@ -15,21 +15,49 @@
         <div class="section-one">
             <div class="logo">
                 <p>Library</p>
-            </div>
-            <nav class="navigation">
+            </div> 
+            <nav class="navigation ">
                 <ul>
+                    <li>
+                        <button class="close-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <line x1="6" y1="6" x2="18" y2="18" stroke="#000000" stroke-width="2" stroke-linecap="butt"/>
+                                <line x1="6" y1="18" x2="18" y2="6" stroke="#000000" stroke-width="2" stroke-linecap="butt"/>
+                            </svg>
+                        </button>
+                    </li>
                     <li><a href="#">Library</a></li>
+                    <div class="line-menu"></div>
                     <li><a href="#">Store</a></li>
+                    <div class="line-menu"></div>
                 </ul>
             </nav>
         </div>
+
+        <!-- Add mobile version of search bar -->
+         <div class="mobile-wrapper">
+            <div class="navigation-mobile">
+                <svg xmlns="http://www.w3.org/2000/svg" width= "40" height="40" viewBox="0 0 40 40">
+                    <line x1="8" y1="12" x2="32" y2="12" class="menu-line line1" />
+                    <line x1="8" y1="20" x2="32" y2="20" class="menu-line line2" />
+                    <line x1="8" y1="28" x2="32" y2="28" class="menu-line line3" />
+                  </svg>
+             </div>
+            <!-- Search mobile version -->
+            <div class="search-mobile">
+                <div class="search-mobile-icon">
+                    <i class="fi fi-bs-search"></i>
+                </div>
+                <input type="text" placeholder="Search" class="search-mobile-input">
+            </div>
+
+         </div>
 
         <div class="section-two search">
             <div class="search-icon">
                 <i class="fi fi-bs-search"></i>
             </div>
             <input type="text" placeholder="Search">
-            <!-- <button>Search</button> -->
         </div>
      </header>
 

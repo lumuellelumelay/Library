@@ -16,7 +16,8 @@
     align-self: center;
 
     font-family: "Inter", sans-serif;
-    font-size: var(--title-font-size);
+    /* font-size: var(--title-font-size); */
+    font-size: clamp(1.45rem, 4vw, var(--title-font-size));
     font-weight: 590;
     color: var(--text-color);
 }
