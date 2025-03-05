@@ -11,7 +11,6 @@ export class BookCardInteraction {
     this.bookYear = this.dialog.querySelector('.book-year-dialog');
     this.currentDescription = this.dialog.querySelector('.current-description');
 
-    // this.initializeElements();
     this.initialize();
   }
 
@@ -23,24 +22,14 @@ export class BookCardInteraction {
     this.closeButtonDialog.addEventListener('click', () => this.closeDialog());
   }
 
-  // initializeElements() {
-  //   this.wrapper = document.querySelector('.wrapper');
-  //   this.bookCards = this.wrapper.querySelectorAll('.book-cards');
-  //   this.dialog = document.querySelector('#bookDetailsDialog');
-  //   this.closeButtonDialog = this.dialog.querySelector('.close-button-dialog');
-  //   this.bookTitle = this.dialog.querySelector('.title-dialog');
-  //   this.bookAuthor = this.dialog.querySelector('.book-author-dialog');
-  //   this.bookYear = this.dialog.querySelector('.book-year-dialog');
-  //   this.currentDescription = this.dialog.querySelector('.current-description');
-  // }
-
   bookCardsClickHandler(e) {
     const bookCard = e.target.closest('.book-cards');
-    console.log(bookCard);
+    const checkClickUserOne = e.target.closest('.toggle-menu-book-container');
+    const checkClickUserTwo = e.target.closest('.menu');
+
+    if (checkClickUserOne || checkClickUserTwo) return;
 
     if (bookCard) {
-      e.stopPropagation();
-
       const bookId = bookCard.dataset.bookId;
       this.fetchBook(bookId);
     }
@@ -48,24 +37,18 @@ export class BookCardInteraction {
 
   async fetchBook(bookId) {
     const processedBook = getBook(bookId);
-    // console.log(processedBook); // checking if the processBook is right book
     this.showBookDetails(processedBook);
   }
 
   showBookDetails(book) {
-    // UI implementation
     const bookDetails = {
       title: book.title,
       author: book.author,
       year: book.year,
       description: book.description,
-      progress: book.progress,
     };
 
-    const bookProcessed = bookDetails;
-
-    // console.log(bookDetails);
-    this.openDialog(bookProcessed);
+    this.openDialog(bookDetails);
   }
 
   openDialog(book) {
