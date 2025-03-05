@@ -20,27 +20,6 @@ export class NewBookHandler {
     this.initializeOverlay();
   }
 
-  newBookManage() {
-    const title = validatorTitle();
-    const author = validatorAuthor();
-    const year = validatorYear();
-
-    const checkEmpty = validatorSubmittion(title, author, year);
-
-    if (checkEmpty) {
-      return null;
-    } else {
-      return {
-        title: title,
-        author: author,
-        year: year,
-        description: validatorDescription(),
-        progress: 0,
-        image: validatorImage(),
-      };
-    }
-  }
-
   initializeOverlay() {
     if (!this.addBookButton) return;
 
@@ -54,6 +33,46 @@ export class NewBookHandler {
         this.addBookHandler();
       }
     });
+  }
+
+  ifImageEmpty(image) {
+    // if the image is undefined, let the bookCardModule handle the default image
+    if (image === undefined) {
+      return '';
+    }
+    return image.trim();
+  }
+
+  ifDescriptionEmpty(description) {
+    if (description === '' || description === undefined) {
+      return 'Add a description';
+    }
+    return description;
+  }
+
+  newBookManage() {
+    const title = validatorTitle();
+    const author = validatorAuthor();
+    const year = validatorYear();
+    let description = validatorDescription();
+    let image = validatorImage();
+
+    image = this.ifImageEmpty(image);
+    description = this.ifDescriptionEmpty(description);
+    const checkEmpty = validatorSubmittion(title, author, year);
+
+    if (checkEmpty) {
+      return null;
+    } else {
+      return {
+        title: title,
+        author: author,
+        year: year,
+        description: description,
+        progress: 0,
+        url: image,
+      };
+    }
   }
 
   cancelHandler(e) {

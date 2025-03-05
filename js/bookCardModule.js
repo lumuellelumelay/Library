@@ -83,7 +83,7 @@ export default class BookCardModule {
     if (!image || image.length === 0) {
       return 'https://picsum.photos/300';
     }
-    return image;
+    return image.trim();
   }
 
   altHandler(alt) {
