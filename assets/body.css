@@ -438,4 +438,129 @@
     transform: rotate(90deg);
 }
 
+/* Dialog book details */
+.book-details-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: var(--background-color);
+    box-shadow: var(--book-shadow);
+    border: none;
+
+    width: clamp(30rem, 40vw, 50%);
+    padding: 1rem;
+
+    opacity: 0;
+    scale: 0.9;
+    transition: opacity 0.3s ease, scale 0.3s ease;
+}
+
+.book-details-dialog[open] { 
+    opacity: 1;
+    scale: 1;
+}
+
+.book-details-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    
+    /* Fade-in animation for backdrop */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.book-details-dialog[open]::backdrop {
+    opacity: 1;
+}
+
+.book-details-dialog .book-detial-wrapper {
+    padding: 1rem;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+}
+
+.dialog-actions .close-button-dialog {
+    padding: 0.3rem 0.4rem 0.2rem 0.4rem;
+    background-color: var(--primary-color);
+
+    border: none;
+    border-radius: 0.2rem;
+
+    box-shadow: var(--light-shadow);
+    cursor: pointer;
+
+    transition: all 300ms ease-out;
+}
+
+.dialog-actions .close-button-dialog:hover {
+    background-color: var(--primary-light-color);
+}
+
+.close-button-dialog svg line{
+    stroke: var(--text-light-color);
+}
+
+.book-details-container {
+    padding-top: 1rem;
+}
+
+.book-details-container .title-dialog {
+    font-family: "Inter", sans-serif;
+    font-size: var(--large-font-size);
+    font-weight: 580;
+    color: var(--text-color);
+}
+
+.book-details-container .book-info-dialog {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.book-details-container  .book-info-dialog .book-author-dialog {
+    font-family: "Inter", sans-serif;
+    font-size: var(--subfont-large-size);
+    font-weight: 490;
+    color: var(--text-third-color);
+}
+
+.book-details-container  .book-info-dialog .book-year-dialog {
+    font-family: "Inter", sans-serif;
+    font-size: var(--subfont-large-size);
+    font-weight: 400;
+    color: var(--text-third-color);
+}
+
+.book-details-container .book-description-section {
+    padding-top: 1rem;
+}
+
+.book-description-section .subtitle-dialog {
+    font-family: "Inter", sans-serif;
+    font-size: var(--regular-font-size);
+    font-weight: 580;
+    color: var(--text-secondary-color);
+}
+
+.book-description-section .description-display {
+    padding-top: 0.1rem;
+    padding-bottom: 0.5rem;
+}
+
+.book-description-section .description-display .current-description {
+    font-family: "Inter", sans-serif;
+    font-size: var(--subfont-large-size);
+    line-height: 150%;
+    font-weight: 400;
+    color: var(--text-secondary-color);
+}
+
+@media (max-width: 500px) { 
+    .book-details-dialog {
+        width: 100%;
+    }
+}
+
 /** Circle svg link: https://codepen.io/ethanforvest/pen/xxMOZBj **/

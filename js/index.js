@@ -3,9 +3,12 @@ import { NewBookHandler } from './newBookHandler.js';
 
 import toggleMenuModule from './toggleMenu.js';
 
+import { BookCardInteraction } from './detailHandler.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   new toggleMenuModule('.wrapper');
   new NewBookHandler('.add-book');
+  new BookCardInteraction();
 });
 
 // Animation

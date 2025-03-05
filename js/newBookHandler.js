@@ -112,13 +112,3 @@ export class NewBookHandler {
     submitButton.addEventListener('click', this.boundSubmitButton);
   }
 }
-
-export const testing = function () {
-  const title = validatorTitle();
-  const author = validatorAuthor();
-  const year = validatorYear();
-  const description = validatorDescription();
-  const image = validatorImage();
-
-  console.log(title, author, year, description, image);
-};

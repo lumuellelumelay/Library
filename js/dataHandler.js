@@ -47,6 +47,11 @@ export const addNewBook = function (book) {
   newBookCard.rederCard();
 };
 
+// this function will get the book with matching id
+export const getBook = function (bookId) {
+  return library.getBook(bookId);
+};
+
 // getting the progress of the book with matching id
 export const progressHandler = function (bookId) {
   // TODO: able to update the progress and able to return back the old progress

@@ -147,7 +147,33 @@
 
      </div>
 
-     <!-- add dialog -->
+      <dialog id="bookDetailsDialog" class="book-details-dialog">
+        <div class="book-detial-wrapper">
+            <div class="dialog-actions">
+                <button id="closeDialog" class="close-button-dialog">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <line x1="6" y1="6" x2="18" y2="18" stroke="#000000" stroke-width="2" stroke-linecap="butt"/>
+                        <line x1="6" y1="18" x2="18" y2="6" stroke="#000000" stroke-width="2" stroke-linecap="butt"/>
+                    </svg>
+                </button>
+            </div>
+    
+            <div class="book-details-container">
+                <p id="bookTitleDialog" class="title-dialog"></p>
+                <div class="book-info-dialog">
+                    <p id="bookAuthorDialog" class="book-author-dialog"></p>
+                    <p id="bookYearDialog" class="book-year-dialog"></p>
+                </div>
+    
+                <div class="book-description-section">
+                    <p class="subtitle-dialog">Description</p>
+                    <div id="descriptionDisplay" class="description-display">
+                        <p id="currentDescription" class="current-description"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </dialog>
 
      <footer>
         <div class="footer">
