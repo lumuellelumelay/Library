@@ -21,6 +21,10 @@ export default class Library {
     return this.bookList[bookId - 1];
   }
 
+  removeBook(bookId) {
+    this.bookList.splice(bookId, 1);
+  }
+
   getNewBook() {
     return this.bookList[this.bookList.length - 1];
   }

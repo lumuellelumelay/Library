@@ -1,4 +1,4 @@
-import { progressHandler } from './dataHandler.js';
+import { progressHandler, removeBookData } from './dataHandler.js';
 
 export default class ToggleMenuModule {
   constructor(wrapper) {
@@ -109,6 +109,28 @@ export default class ToggleMenuModule {
     }
   }
 
+  // bookCard.remove();
+  removeBook(bookId, bookIndex) {
+    bookId = bookId.toString();
+
+    this.wrapper.querySelectorAll('.book-cards').forEach((bookCard) => {
+      const bookCardId = bookCard.dataset.bookId;
+      if (bookCardId === bookId) {
+        bookCard.remove();
+        removeBookData(bookIndex);
+      }
+    });
+  }
+
+  removeToggle(bookId, isToggled, removeToggle) {
+    bookId = parseInt(bookId);
+    const bookIndex = bookId - 1;
+    if (isToggled === 'true') {
+      // TODO: create a dialog comfirmation to remove the book
+      this.removeBook(bookId, bookIndex);
+    }
+  }
+
   doneToggleHandler(e, doneToggleId) {
     e.stopPropagation();
     // function to handle progress bars
@@ -124,8 +146,11 @@ export default class ToggleMenuModule {
   removeToggleHandler(e, removeToggleId) {
     e.stopPropagation();
     // function to handle remove book card
-
     const menu = this.bookCardHandler(removeToggleId);
+    const removeToggle = menu.querySelector('.remove');
+    const isToggled = this.toggleHandler(removeToggle);
+
+    this.removeToggle(removeToggleId, isToggled, removeToggle);
     menu.classList.remove('active');
   }
 

@@ -123,6 +123,7 @@ export default class BookCardModule {
 
     this.elements.remove.classList.add('remove');
     this.elements.remove.setAttribute('data-remove-toggle-id', this.data.id);
+    this.elements.remove.setAttribute('isToggled', 'false');
   }
 
   setDoneComponent() {
@@ -166,8 +167,6 @@ export default class BookCardModule {
     });
 
     // attributes of circle two
-    // const progressBar = `progress--${this.data.id}`;
-    // const progressBar = `progress--circle`;
     const circleTwoAttributes = {
       id: 'progress--circle',
       stroke: '#9a6971',

@@ -52,6 +52,11 @@ export const getBook = function (bookId) {
   return library.getBook(bookId);
 };
 
+export const removeBookData = function (bookId) {
+  library.removeBook(bookId);
+  console.log(library.getBookList());
+};
+
 // getting the progress of the book with matching id
 export const progressHandler = function (bookId) {
   // TODO: able to update the progress and able to return back the old progress
