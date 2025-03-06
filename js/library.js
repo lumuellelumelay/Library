@@ -18,11 +18,21 @@ export default class Library {
   }
 
   getBook(bookId) {
-    return this.bookList[bookId - 1];
+    bookId = parseInt(bookId);
+    console.log(bookId, this.bookList);
+    const bookList = this.getBookList();
+    const bookFiltered = bookList.filter((book) => {
+      if (book.id === bookId) {
+        return book;
+      }
+    });
+    return bookFiltered[0];
   }
 
   removeBook(bookId) {
-    this.bookList.splice(bookId, 1);
+    const bookList = this.getBookList();
+    const index = bookList.findIndex((book) => book.id === bookId);
+    this.bookList.splice(index, 1);
   }
 
   getNewBook() {

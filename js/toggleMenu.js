@@ -109,28 +109,6 @@ export default class ToggleMenuModule {
     }
   }
 
-  // bookCard.remove();
-  removeBook(bookId, bookIndex) {
-    bookId = bookId.toString();
-
-    this.wrapper.querySelectorAll('.book-cards').forEach((bookCard) => {
-      const bookCardId = bookCard.dataset.bookId;
-      if (bookCardId === bookId) {
-        bookCard.remove();
-        removeBookData(bookIndex);
-      }
-    });
-  }
-
-  removeToggle(bookId, isToggled, removeToggle) {
-    bookId = parseInt(bookId);
-    const bookIndex = bookId - 1;
-    if (isToggled === 'true') {
-      // TODO: create a dialog comfirmation to remove the book
-      this.removeBook(bookId, bookIndex);
-    }
-  }
-
   doneToggleHandler(e, doneToggleId) {
     e.stopPropagation();
     // function to handle progress bars
@@ -141,6 +119,27 @@ export default class ToggleMenuModule {
 
     this.doneToggle(doneToggleId, isToggled, doneToggle);
     menu.classList.remove('active');
+  }
+
+  // bookCard.remove();
+  removeBook(bookId) {
+    bookId = bookId.toString();
+
+    this.wrapper.querySelectorAll('.book-cards').forEach((bookCard) => {
+      const bookCardId = bookCard.dataset.bookId;
+      if (bookCardId === bookId) {
+        bookCard.remove();
+        removeBookData(bookId);
+      }
+    });
+  }
+
+  removeToggle(bookId, isToggled, removeToggle) {
+    bookId = parseInt(bookId);
+    if (isToggled === 'true') {
+      // TODO: create a dialog comfirmation to remove the book
+      this.removeBook(bookId);
+    }
   }
 
   removeToggleHandler(e, removeToggleId) {

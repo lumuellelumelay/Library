@@ -53,8 +53,8 @@ export const getBook = function (bookId) {
 };
 
 export const removeBookData = function (bookId) {
+  bookId = parseInt(bookId);
   library.removeBook(bookId);
-  console.log(library.getBookList());
 };
 
 // getting the progress of the book with matching id
