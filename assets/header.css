@@ -86,10 +86,6 @@ header .search .search-icon {
     height: 2rem;
     width: 2rem;
 
-    /* border-left: 1px solid var(--border-color);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color); */
-
     background-color: var(--primary-color);
 }
 
